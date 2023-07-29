@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import logo from '../logo.svg';
 import S from './bubble.module.css';
 
 const Bubble = () => {
-    const bubbles = 50;
+    const wrapper = useRef(null);
+    const bubbles = 100;
     const gap = 10; // gap between bubbles
     const minSize = 30; // Minimum size of the bubble
     const maxSize = 100; // Maximum size of the bubble
+
+    useEffect(() => {
+        // Accessing the height of the div after the component has rendered
+        if (wrapper.current) {
+            const height = wrapper.current.clientHeight;
+            console.log('Height of the div:', height);
+        }
+    }, []);
 
     const getRandomSize = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     const getRandomPosition = (bubbleSize) => {
-        const xRange = window.innerWidth - bubbleSize - gap * 2;
-        const yRange = window.innerHeight - bubbleSize - gap * 2;
+        const wrapperWidth = wrapper.current.clientWidth;
+        const wrapperHeight = wrapper.current.clientHeight;
+        const xRange = wrapperWidth - bubbleSize - gap * 2;
+        const yRange = wrapperHeight - bubbleSize - gap * 2;
 
         const x = gap + Math.random() * xRange;
         const y = gap + Math.random() * yRange;
@@ -24,7 +36,6 @@ const Bubble = () => {
             size: bubbleSize,
         };
     };
-
 
     const isColliding = (a, b, bubbleSize) => {
         return Math.hypot(a.x - b.x, a.y - b.y) < bubbleSize + gap;
@@ -72,7 +83,11 @@ const Bubble = () => {
     };
 
     return (
-        <div className={'Wrapper'}>
+        <div
+            className={'Wrapper'}
+            ref={wrapper}
+            style={{ height: '500px', width: '100%', position: 'relative', overflow: 'hidden' }}
+        >
             {positions.map((position, i) => (
                 <div
                     key={i}
@@ -82,10 +97,21 @@ const Bubble = () => {
                         width: `${position.size}px`,
                         height: `${position.size}px`,
                         position: 'absolute',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                     className={`${S.bubble} ${getClassName(i)}`}
                 >
-                    {i}
+
+                    <img
+                        height={position.size * 0.6} // Adjust the image size relative to the bubble size
+                        width={position.size * 0.6} // Adjust the image size relative to the bubble size
+                        src={logo}
+                        alt="logo"
+                        style={{ objectFit: 'contain' }} // Make the image fit within the container
+                    />
+
                 </div>
             ))}
         </div>
