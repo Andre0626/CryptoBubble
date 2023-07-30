@@ -1,5 +1,5 @@
 :root {
-    --bubbleTiming: cubic-bezier(0.5,0.15,0.25,1.75);
+    --bubbleTiming: cubic-bezier(0.5, 0.15, 0.25, 1.75);
     font-size: calc(40px + (60 - 40) * (100vw - 320px) / (1280 - 320));
 }
 
@@ -7,15 +7,19 @@ label, .bubble {
     display: block;
     -webkit-tap-highlight-color: transparent;
 }
+
 label {
     animation: float 4s ease-in-out infinite;
 }
-.bubble, .bubble:before, .bubble:after  {
+
+.bubble, .bubble:before, .bubble:after {
     transition-duration: 0.2s;
 }
+
 .bubble, .bubble:after {
     border-radius: 50%;
 }
+
 .bubble {
     cursor: pointer;
     position: relative;
@@ -34,77 +38,84 @@ label {
 }
 
 .bubbleRed {
-    box-shadow:
-            0 -0.06em 0.1em hsl(0,90%,100%) inset,
-            0 -0.15em 0.4em hsl(0,90%,45%) inset,
-            0 0.05em 0.05em hsl(0,90%,45%) inset,
-            0.05em 0 0.1em hsl(0,90%,100%) inset,
-            -0.05em 0 0.1em hsl(0,90%,100%) inset,
-            0 0.1em 0.4em hsl(0,90%,60%) inset;
+    box-shadow: 0 -0.06em 0.1em hsl(0, 90%, 100%) inset,
+    0 -0.15em 0.4em hsl(0, 90%, 45%) inset,
+    0 0.05em 0.05em hsl(0, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(0, 90%, 100%) inset,
+    -0.05em 0 0.1em hsl(0, 90%, 100%) inset,
+    0 0.1em 0.4em hsl(0, 90%, 60%) inset;
 }
 
 .bubbleGreen {
-    box-shadow:
-            0 -0.06em 0.1em hsl(120,90%,100%) inset,
-            0 -0.15em 0.4em hsl(120,90%,45%) inset,
-            0 0.05em 0.05em hsl(120,90%,45%) inset,
-            0.05em 0 0.1em hsl(120,90%,100%) inset,
-            -0.05em 0 0.1em hsl(120,90%,100%) inset,
-            0 0.1em 0.4em hsl(120,90%,60%) inset;
+    box-shadow: 0 -0.06em 0.1em hsl(120, 90%, 100%) inset,
+    0 -0.15em 0.4em hsl(120, 90%, 45%) inset,
+    0 0.05em 0.05em hsl(120, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+    -0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+    0 0.1em 0.4em hsl(120, 90%, 60%) inset;
+    appearance: none;
 }
 
 .bubble:focus, .bubble:hover {
     transform: scale(1.1);
     outline: none;
 }
+
 .bubble:focus:active, .bubble:hover:active {
     width: 3.6em;
     height: 2.4em;
 }
 
 .bubble:focus:after, .bubble:hover:after {
-    transform: translate3d(0.15em,0.15em,-1px);
+    transform: translate3d(0.15em, 0.15em, -1px);
 }
 
 .bubble:checked:before {
     border-radius: 0.25em;
     width: 0.5em;
 }
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     label {
         animation: none;
     }
+
     .bubble, .bubble:before, .bubble:after {
         transition-duration: 0s;
     }
+
     .bubble:focus, .bubble:hover {
         transform: scale(1);
     }
+
     .bubble:focus:active, .bubble:hover:active {
         width: 3em;
         height: 3em;
     }
+
     .bubble:focus:before, .bubble:hover:before {
-        filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+        filter: drop-shadow(0.6em 0.6em 4px hsla(0, 0%, 0%, 0.2));
     }
+
     .bubble:focus:after, .bubble:hover:after {
-        transform: translate3d(0,0,-1px);
+        transform: translate3d(0, 0, -1px);
     }
 }
+
 /* Animations */
 @keyframes float {
     from, to {
-        transform: translate(0,3%);
+        transform: translate(0, 3%);
     }
     25% {
-        transform: translate(-3%,0);
+        transform: translate(-3%, 0);
     }
     50% {
-        transform: translate(0,-3%);
+        transform: translate(0, -3%);
     }
     75% {
-        transform: translate(3%,0);
+        transform: translate(3%, 0);
     }
 }
 
