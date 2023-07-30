@@ -20,13 +20,13 @@ function App() {
                         fillColor: {
                             radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
                             stops: [
-                                [0, 'hsla(120,90%,100%,0)'],
-                                [0.6, 'hsla(120,90%,100%,0)'],
-                                [1, 'hsl(120,90%,45%)']
+                                [0, 'hsla(0,100%,100%,0)'],
+                                [0.6, 'hsla(0,100%,100%,0)'],
+                                [1, 'hsl(0,100%,50%)']
                             ]
                         },
                         lineWidth: 1,
-                        lineColor: 'hsl(120,90%,100%)'
+                        lineColor: 'hsl(0,100%,100%)'
                     }
                 }
             )
@@ -40,13 +40,13 @@ function App() {
                         fillColor: {
                             radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
                             stops: [
-                                [0, 'hsla(0,100%,100%,0)'],
-                                [0.6, 'hsla(0,100%,100%,0)'],
-                                [1, 'hsl(0,100%,50%)']
+                                [0, 'hsla(120,90%,100%,0)'],
+                                [0.6, 'hsla(120,90%,100%,0)'],
+                                [1, 'hsl(120,90%,45%)']
                             ]
                         },
                         lineWidth: 1,
-                        lineColor: 'hsl(0,100%,100%)'
+                        lineColor: 'hsl(120,90%,100%)'
                     },
                 }
             )

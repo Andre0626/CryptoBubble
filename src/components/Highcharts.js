@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
@@ -60,15 +60,15 @@ const Chart = ({ dataChart }) => {
                     align: 'center',
                     verticalAlign: 'middle',
                     formatter: function () {
+                        const radius = this.point.graphic.radius;
+                        const imgSize = radius * 0.7;
                         const name = this.point?.name?.split('-')[0]?.trim();
                         const dataChange = this.point.color === "rgb(149,58,59)" ? '+' : '-';
                         const percentage = dataChange + this.point.value + '%';
                         const options = this.point.options;
-                        const radius = this.point.graphic.radius;
                         let fontSize = radius * 0.2;
                         if (fontSize < 10)
                             fontSize = 10;
-                        const imgSize = radius * 0.7;
                         const defaultImageUrl = 'https://example.com/default-image.png';
 
                         const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
@@ -87,6 +87,9 @@ const Chart = ({ dataChart }) => {
                     ]
                 },
                 states: {
+                    hover: {
+                        enabled: false, // Disables the hover effect
+                    },
                     inactive: {
                         opacity: 1
                     }
