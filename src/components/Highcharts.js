@@ -61,9 +61,9 @@ const Chart = ({dataChart}) => {
                     align: 'center',
                     verticalAlign: 'middle',
                     formatter: function () {
-                        console.log(this.point.id);
-                        const percentage = this.point.y > 1 ? this.point.y + '%': '';
-                        const classNameLabel = this.point.y > 1 ? 'bubbleLabel' : '';
+                        const dataChange = this.point.color === "rgb(149,58,59)" ? '+' : '-';
+                        const percentage = this.point.y > 1 ? dataChange + this.point.y + '%': '';
+                        const classNameLabel = this.point.y > 1 ? (this.point.color === "rgb(149,58,59)" ? 'bubbleLabelGreen' : 'bubbleLabelRed') : '';
                         const options = this.point.options
                         const heightDiv = (this.point.marker.height) + 'px';
                         const widthDiv = (this.point.marker.width) + 'px';

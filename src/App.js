@@ -55,12 +55,12 @@ function App() {
         {
             name: "Worse Rank",
             data: series.red,
-            color: "rgb(149,58,59)"
+            color: "rgb(149,58,59)",
         },
         {
             name: "Green",
             data: series.green,
-            color: "rgb(23,85,63)"
+            color: "rgb(23,85,63)",
         },
     ]
 
