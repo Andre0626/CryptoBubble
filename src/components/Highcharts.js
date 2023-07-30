@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
@@ -6,30 +6,33 @@ require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/highcharts-more")(Highcharts);
 
 const Chart = ({ dataChart }) => {
+    const chartRef = useRef(null);
 
-    const applyBoxShadowToBubbles = (chart) => {
-        const bubbles = chart.series[0]?.points;
-        if (bubbles) {
-            bubbles.forEach(bubble => {
-                const element = bubble.graphic && bubble.graphic.element;
-                if (element) {
-                    element.style.boxShadow = `
-            0 -0.06em 0.1em hsl(120, 90%, 100%) inset,
-            0 -0.15em 0.4em hsl(120, 90%, 45%) inset,
-            0 0.05em 0.05em hsl(120, 90%, 45%) inset,
-            0.05em 0 0.1em hsl(120, 90%, 100%) inset,
-            -0.05em 0 0.1em hsl(120, 90%, 100%) inset,
-            0 0.1em 0.4em hsl(120, 90%, 60%) inset
-          `;
+    useEffect(() => {
+        const resizeChart = () => {
+            if (chartRef.current) {
+                let height = Math.max(window.innerHeight, chartRef.current.chart.chartHeight);
+                // If it's a mobile view (viewport width is less than 768px), add some extra space
+                if (window.innerWidth < 768) {
+                    height += 300; // Add as much space as you need
                 }
-            });
-        }
-    };
+                chartRef.current.chart.setSize(undefined, height, false);
+            }
+        };
+
+        window.addEventListener('resize', resizeChart);
+        resizeChart();  // Call it once to size chart initially
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', resizeChart);
+        };
+    }, []);
+
 
     const options = {
         chart: {
             type: 'packedbubble',
-            height: '800px',
             margin: 0,
             styledMode: false,
             backgroundColor: '#282c34',
@@ -48,7 +51,7 @@ const Chart = ({ dataChart }) => {
         series: dataChart,
         plotOptions: {
             packedbubble: {
-                minSize: 100,
+                minSize: 120,
                 maxSize: '200%',
                 dataLabels: {
                     backgroundColor: undefined,
@@ -74,13 +77,20 @@ const Chart = ({ dataChart }) => {
                             `<div style="margin:5px">${name}</div>` +
                             `<div style="font-size:${fontSize}px;">${percentage}</div>` +
                             '</div>'
-                    },
-
-                    style: {
-                        fontSize: '10px',
-                        boxShadow: '0 -0.06em 0.1em hsl(120,90%,100%) inset, 0 -0.15em 0.4em hsl(120,90%,45%) inset, 0 0.05em 0.05em hsl(120,90%,45%) inset, 0.05em 0 0.1em hsl(120,90%,100%) inset, -0.05em 0 0.1em hsl(120,90%,100%) inset, 0 0.1em 0.4em hsl(120,90%,60%) inset',
                     }
                 },
+                color: {
+                    radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+                    stops: [
+                        [0, 'rgba(255,255,255,0.5)'],
+                        [1, 'rgba(0,0,0,0.5)']
+                    ]
+                },
+                states: {
+                    inactive: {
+                        opacity: 1
+                    }
+                }
             }
         },
         tooltip: {
@@ -99,11 +109,15 @@ const Chart = ({ dataChart }) => {
     };
 
     return (
-        <div style={{ width: "100%" }}>
-            <HighchartsReact width={'100%'} height={'200%'} highcharts={Highcharts} options={options} />
+        <div style={{ width: "100%", height: '100%', overflow: 'auto' }}>
+            <HighchartsReact
+                highcharts={Highcharts}
+                options={options}
+                containerProps={{ style: { height: 'auto' } }}
+                ref={chartRef}
+            />
         </div>
     )
-
 }
 
 export default Chart;

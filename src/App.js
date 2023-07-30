@@ -2,7 +2,9 @@ import './App.css';
 import Bubble from "./components/Bubble";
 import Chart from "./components/Highcharts";
 import Data from "./mvxData.json";
+
 function App() {
+
     const minPercentage = Math.min(...Data.map(d => Math.abs(d.price_change_percentage)));
     const maxPercentage = Math.max(...Data.map(d => Math.abs(d.price_change_percentage)));
 
@@ -15,11 +17,16 @@ function App() {
                     value: Number(parseFloat(crt.price_change_percentage).toFixed(2)),
                     z: scaledPercentage,
                     marker: {
-                        // radius: 50,
-                        lineColor: 'rgb(149,58,59)',
-                        lineWidth: 5,
-                        clip: true,
-                        fillColor: 'rgb(149,58,59)'
+                        fillColor: {
+                            radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
+                            stops: [
+                                [0, 'hsla(120,90%,100%,0)'],
+                                [0.6, 'hsla(120,90%,100%,0)'],
+                                [1, 'hsl(120,90%,45%)']
+                            ]
+                        },
+                        lineWidth: 1,
+                        lineColor: 'hsl(120,90%,100%)'
                     }
                 }
             )
@@ -30,11 +37,16 @@ function App() {
                     value: Math.abs(Number(parseFloat(crt.price_change_percentage).toFixed(2))),
                     z: scaledPercentage,
                     marker: {
-                        // radius: 50,
-                        lineColor: 'rgb(17,255,0)',
-                        lineWidth: 5,
-                        clip: true,
-                        fillColor: 'rgb(17,255,0)'
+                        fillColor: {
+                            radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
+                            stops: [
+                                [0, 'hsla(0,100%,100%,0)'],
+                                [0.6, 'hsla(0,100%,100%,0)'],
+                                [1, 'hsl(0,100%,50%)']
+                            ]
+                        },
+                        lineWidth: 1,
+                        lineColor: 'hsl(0,100%,100%)'
                     },
                 }
             )
@@ -42,8 +54,6 @@ function App() {
 
         return acc
     }, { red: [], green: [] });
-
-    console.log(series);
 
     const dataChart = [
         {
@@ -57,8 +67,6 @@ function App() {
             color: "rgb(23,85,63)",
         },
     ]
-
-    console.log("data chartL ", dataChart);
 
     return (
         <div className="App">
