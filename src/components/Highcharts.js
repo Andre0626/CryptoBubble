@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/highcharts-more")(Highcharts);
 
-const Chart = ({dataChart}) => {
+const Chart = ({ dataChart }) => {
 
     const applyBoxShadowToBubbles = (chart) => {
         const bubbles = chart.series[0]?.points;
@@ -44,35 +43,37 @@ const Chart = ({dataChart}) => {
         credits: {
             enabled: false
         },
-        legend: {enabled: false},
-        exporting: {enabled: false},
+        legend: { enabled: false },
+        exporting: { enabled: false },
         series: dataChart,
         plotOptions: {
             packedbubble: {
-                minSize: 30,
-                maxSize: '250%',
+                minSize: 100,
+                maxSize: '200%',
                 dataLabels: {
-                    backgroundColor:undefined,
-                    // borderColor: "#FFFF",
-                    // borderRadius:5,
-                    // borderWidth:2,
+                    backgroundColor: undefined,
                     enabled: true,
                     useHTML: true,
                     align: 'center',
                     verticalAlign: 'middle',
                     formatter: function () {
+                        const name = this.point?.name?.split('-')[0]?.trim();
                         const dataChange = this.point.color === "rgb(149,58,59)" ? '+' : '-';
-                        const percentage = this.point.y > 1 ? dataChange + this.point.y + '%': '';
-                        const classNameLabel = this.point.y > 1 ? (this.point.color === "rgb(149,58,59)" ? 'bubbleLabelGreen' : 'bubbleLabelRed') : '';
-                        const options = this.point.options
-                        const heightDiv = (this.point.marker.height) + 'px';
-                        const widthDiv = (this.point.marker.width) + 'px';
+                        const percentage = dataChange + this.point.value + '%';
+                        const options = this.point.options;
+                        const radius = this.point.graphic.radius;
+                        let fontSize = radius * 0.2;
+                        if (fontSize < 10)
+                            fontSize = 10;
+                        const imgSize = radius * 0.7;
+                        const defaultImageUrl = 'https://example.com/default-image.png';
 
-                        const url = ` https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
-                        return `<div class="wrapperDataLabels">` +
-                                // `<img  class="imgClass"  src=${url} alt=""/>`+
-                                `<div class="${classNameLabel}">${percentage}</div>` +
-                            '<div>'
+                        const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
+                        return `<div class="wrapperDataLabels" style="font-size:${fontSize}px;text-align:center">` +
+                            `<img  class="imgClass" src=${url} alt="" style="width:${imgSize}px; height:${imgSize}px;" />` +
+                            `<div style="margin:5px">${name}</div>` +
+                            `<div style="font-size:${fontSize}px;">${percentage}</div>` +
+                            '</div>'
                     },
 
                     style: {
@@ -98,8 +99,8 @@ const Chart = ({dataChart}) => {
     };
 
     return (
-        <div>
-            <HighchartsReact width={'100%'} highcharts={Highcharts} options={options}/>
+        <div style={{ width: "100%" }}>
+            <HighchartsReact width={'100%'} height={'200%'} highcharts={Highcharts} options={options} />
         </div>
     )
 
