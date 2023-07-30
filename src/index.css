@@ -27,24 +27,31 @@ code {
 }
 
 .wrapperDataLabels{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.tokenName{
+    font-size: 15px;
 }
 
 .imgClass {
     border-radius: 50%;
-    object-fit: cover;
-    width: 50px;
-    height: 50px;
+    display: block;
 }
 
 .bubbleLabelRed {
-    background-color: rgba(149,58,59,0.7);
+    color: rgba(243, 12, 13, 0.9);
     font-size: 16px;
     padding: 5px;
     border-radius: 10px;
 }
 
 .bubbleLabelGreen {
-    background-color: rgba(23,85,63,0.7);
+    color: rgb(73, 215, 17);
     font-size: 16px;
     padding: 5px;
     border-radius: 10px;
@@ -59,6 +66,15 @@ code {
     -0.05em 0 0.1em hsl(120, 90%, 100%) inset,
     0 0.1em 0.4em hsl(120, 90%, 60%) inset;
     appearance: none;
+}
+
+.bubbleRed {
+    box-shadow: 0 -0.06em 0.1em hsl(0, 90%, 100%) inset,
+    0 -0.15em 0.4em hsl(0, 90%, 45%) inset,
+    0 0.05em 0.05em hsl(0, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(0, 90%, 100%) inset,
+    -0.05em 0 0.1em hsl(0, 90%, 100%) inset,
+    0 0.1em 0.4em hsl(0, 90%, 60%) inset;
 }
 
 img{

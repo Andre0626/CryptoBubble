@@ -11,32 +11,32 @@ function App() {
                 {
                     name: crt.token_id,
                     value: Number(parseFloat(crt.price_change_percentage).toFixed(2)),
-                    marker: {
-                        symbol: `url(https://media.elrond.com/tokens/asset/${crt.token_id}/logo.svg)`,
-                        width: '',
-                        radius: '50%',
-                        height: '',
-                        lineColor: 'rgb(17,255,0)',
-                        lineWidth: 5,
-                        clip: true,
-                        fillColor: 'rgb(17,255,0)'
-                    }
+                    // marker: {
+                    //     symbol: `url(https://media.elrond.com/tokens/asset/${crt.token_id}/logo.svg)`,
+                    //     width: '',
+                    //     radius: '50%',
+                    //     height: '',
+                    //     lineColor: 'rgb(17,255,0)',
+                    //     lineWidth: 5,
+                    //     clip: true,
+                    //     fillColor: 'rgb(17,255,0)'
+                    // }
                 }
             )
         } else {
             acc.red.push(
                 {
                     name: crt.token_id,
-                    value: Math.abs(Number(parseFloat(crt.price_change_percentage).toFixed(2))),
-                    marker: {
-                        symbol: `url(https://media.elrond.com/tokens/asset/${crt.token_id}/logo.svg)`,
-                        width: 16,
-                        radius: 50,
-                        height: 16,
-                        lineColor: 'rgb(149,58,59)',
-                        lineWidth: 5,
-                        clip: true,
-                    },
+                    value: Number(parseFloat(crt.price_change_percentage).toFixed(2)),
+                    // marker: {
+                    //     symbol: `url(https://media.elrond.com/tokens/asset/${crt.token_id}/logo.svg)`,
+                    //     width: 16,
+                    //     radius: 50,
+                    //     height: 16,
+                    //     lineColor: 'rgb(149,58,59)',
+                    //     lineWidth: 5,
+                    //     clip: true,
+                    // },
                     // marker: {
                     //     symbol: `url(https://media.elrond.com/tokens/asset/${crt.token_id}/logo.svg)`,
                     //     width: 16,

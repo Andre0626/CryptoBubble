@@ -49,10 +49,26 @@ const Chart = ({dataChart}) => {
         series: dataChart,
         plotOptions: {
             packedbubble: {
-                minSize: 30,
-                maxSize: '250%',
+                minSize: 70,
+                shadow: false,
+                maxSize: '200%',
+                draggable: {
+                    shadow: false
+                },
+                states: {
+                    hover: {
+                        shadow: false,
+                        halo: {
+                            size: 0
+                        }
+                    }
+                },
+                marker: {
+                    fillColor: 'rgba(0, 0, 0, 0)',
+                    lineColor: 'rgba(0, 0, 0, 0)'
+                },
                 dataLabels: {
-                    backgroundColor:undefined,
+                    backgroundColor: undefined,
                     // borderColor: "#FFFF",
                     // borderRadius:5,
                     // borderWidth:2,
@@ -61,24 +77,26 @@ const Chart = ({dataChart}) => {
                     align: 'center',
                     verticalAlign: 'middle',
                     formatter: function () {
-                        const dataChange = this.point.color === "rgb(149,58,59)" ? '+' : '-';
-                        const percentage = this.point.y > 1 ? dataChange + this.point.y + '%': '';
-                        const classNameLabel = this.point.y > 1 ? (this.point.color === "rgb(149,58,59)" ? 'bubbleLabelGreen' : 'bubbleLabelRed') : '';
+                        const dataChange = this.point.y > 0 ? '+' : '-';
+                        const percentage = this.point.y + '%'
+                        const classNameLabel = this.point.y > 0  ? 'bubbleLabelGreen' : 'bubbleLabelRed';
+                        const bubbleStyle = this.point.y > 0 ? 'bubbleGreen' : 'bubbleRed';
                         const options = this.point.options
-                        const heightDiv = (this.point.marker.height) + 'px';
-                        const widthDiv = (this.point.marker.width) + 'px';
+
+                        const bubbleName =  this.point.name.substring(0, this.point.name.indexOf('-'));
+                        const bubbleNameDisplay = bubbleName;
+                        const bubbleSize = this.point.marker.radius;
+                        const heightDiv = bubbleSize * 2 + 'px';
+                        const widthDiv = bubbleSize * 2 + 'px';
+                        const imgSize = bubbleSize + 'px';
 
                         const url = ` https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
-                        return `<div class="wrapperDataLabels">` +
-                                // `<img  class="imgClass"  src=${url} alt=""/>`+
-                                `<div class="${classNameLabel}">${percentage}</div>` +
+                        return `<div class="wrapperDataLabels ${bubbleStyle}" style="height: ${heightDiv}; width: ${widthDiv};">` +
+                            `<img  class="imgClass" height=${imgSize}  width=${imgSize} src=${url} alt=""/>` +
+                            `<div class="tokenName">${bubbleNameDisplay}</div>` +
+                            `<div class="${classNameLabel}">${percentage}</div>` +
                             '<div>'
                     },
-
-                    style: {
-                        fontSize: '10px',
-                        boxShadow: '0 -0.06em 0.1em hsl(120,90%,100%) inset, 0 -0.15em 0.4em hsl(120,90%,45%) inset, 0 0.05em 0.05em hsl(120,90%,45%) inset, 0.05em 0 0.1em hsl(120,90%,100%) inset, -0.05em 0 0.1em hsl(120,90%,100%) inset, 0 0.1em 0.4em hsl(120,90%,60%) inset',
-                    }
                 },
             }
         },
