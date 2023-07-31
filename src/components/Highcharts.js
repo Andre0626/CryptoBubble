@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import ImageWithFallback from "./ImageWithFallback";
 
 require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/highcharts-more")(Highcharts);
 
-const Chart = ({ dataChart }) => {
+const Chart = ({dataChart}) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -46,8 +47,8 @@ const Chart = ({ dataChart }) => {
         credits: {
             enabled: false
         },
-        legend: { enabled: false },
-        exporting: { enabled: false },
+        legend: {enabled: false},
+        exporting: {enabled: false},
         series: dataChart,
         plotOptions: {
             packedbubble: {
@@ -77,7 +78,7 @@ const Chart = ({ dataChart }) => {
                         if (fontSize < 10)
                             fontSize = 10;
                         const imgSize = radius * 0.7;
-                        const defaultImageUrl = 'https://example.com/default-image.png';
+                        const defaultImageUrl = 'https://media.elrond.com/nfts/thumbnail/default.png';
 
                         const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
                         return `<div class="wrapperDataLabels" style="font-size:${fontSize}px;text-align:center">` +
@@ -88,7 +89,7 @@ const Chart = ({ dataChart }) => {
                     }
                 },
                 color: {
-                    radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+                    radialGradient: {cx: 0.4, cy: 0.3, r: 0.7},
                     stops: [
                         [0, 'rgba(255,255,255,0.5)'],
                         [1, 'rgba(0,0,0,0.5)']
@@ -117,11 +118,11 @@ const Chart = ({ dataChart }) => {
     };
 
     return (
-        <div style={{ width: "100%", height: '100%', overflow: 'auto' }}>
+        <div style={{width: "100%", height: '100%', overflow: 'auto'}}>
             <HighchartsReact
                 highcharts={Highcharts}
                 options={options}
-                containerProps={{ style: { height: 'auto' } }}
+                containerProps={{style: {height: 'auto'}}}
                 ref={chartRef}
             />
         </div>
