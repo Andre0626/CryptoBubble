@@ -39,9 +39,9 @@ const Chart = ({dataChart}) => {
             backgroundColor: '#282c34',
         },
         title: {
-            text: 'MVX Bubblechart',
+            text: '',
             style: {
-                fontSize: '20px',
+                fontSize: '1px',
                 color: '#FFFF'
             }
         },
