@@ -18,7 +18,7 @@ function App() {
                 z: scaledPercentage,
                 marker: {
                     fillColor: {
-                        radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+                        radialGradient: {cx: 0.5, cy: 0.5, r: 0.5},
                         stops: [
                             [0.5, 'rgba(255, 255, 255, 0)'],
                             [0.8, 'rgba(0, 255, 0, 0.3)'],
@@ -30,14 +30,14 @@ function App() {
                     lineColor: 'rgba(0, 255, 0, .5)'
                 }
             });
-        } else if (Number(crt.price_change_percentage) < 0) {
+        } else {
             acc.red.push({
                 name: crt.token_id,
                 value: Math.abs(Number(parseFloat(crt.price_change_percentage).toFixed(2))),
                 z: scaledPercentage,
                 marker: {
                     fillColor: {
-                        radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+                        radialGradient: {cx: 0.5, cy: 0.5, r: 0.5},
                         stops: [
                             [0.5, 'rgba(255, 0, 0, 0)'],
                             [0.8, 'rgba(255, 0, 0, 0.3)'],
@@ -52,7 +52,7 @@ function App() {
         }
 
         return acc;
-    }, { green: [], red: [] });
+    }, {green: [], red: []});
 
 
     const dataChart = [
@@ -71,8 +71,8 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Bubble />
-                <Chart dataChart={dataChart} />
+                <Bubble/>
+                <Chart dataChart={dataChart}/>
             </header>
         </div>
     );

@@ -53,7 +53,7 @@ const Chart = ({dataChart}) => {
         series: dataChart,
         plotOptions: {
             packedbubble: {
-                minSize: 120,
+                minSize: 100,
                 maxSize: '200%',
                 marker: {
                     states: {
@@ -72,13 +72,13 @@ const Chart = ({dataChart}) => {
                     formatter: function () {
                         const name = this.point?.name?.split('-')[0]?.trim();
                         const dataChange = this.point.color === "rgb(149,58,59)" ? '-' : '+';
-                        const percentage = dataChange + this.point.value + '%';
+                        const percentage = this.point.value > 0 ? dataChange + this.point.value + '%' : '';
                         const options = this.point.options;
                         const radius = this.point.graphic.radius;
                         let fontSize = radius * 0.2;
                         if (fontSize < 10)
                             fontSize = 10;
-                        const imgSize = radius * 0.7;
+                        const imgSize = radius * 0.9;
                         const defaultImageUrl = 'https://media.elrond.com/nfts/thumbnail/default.png';
 
                         const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
