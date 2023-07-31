@@ -1,13 +1,83 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.highcharts-tooltip span {
+    height: auto !important;
+    width: 140px !important;
+    max-width: 140px !important;
+    overflow: auto !important;
+    white-space: normal !important;
+}
+
+.test {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.wrapperDataLabels {}
+
+.imgClass {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.bubbleLabelRed {
+    background-color: rgba(149, 58, 59, 0.7);
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.bubbleLabelGreen {
+    background-color: rgba(23, 85, 63, 0.7);
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.bubbleGreen {
+    box-shadow: 0 -0.06em 0.1em hsl(120, 90%, 100%) inset,
+        0 -0.15em 0.4em hsl(120, 90%, 45%) inset,
+        0 0.05em 0.05em hsl(120, 90%, 45%) inset,
+        0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+        -0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+        0 0.1em 0.4em hsl(120, 90%, 60%) inset;
+    appearance: none;
+}
+
+img {
+    border-radius: 50% !important;
+}
+
+.chartContainer {
+    width: 100%;
+    height: 100vh;
+    /* take the full height of the viewport on web */
+    overflow: auto;
+    /* allow scrolling if content overflows */
+}
+
+/* when the device width is less than 768px (typical breakpoint for mobile devices) */
+@media (max-width: 768px) {
+    .chartContainer {
+        height: auto;
+        /* take the height as much as needed on mobile */
+        min-height: 100vh;
+        /* at least take the full height of the viewport */
+    }
 }

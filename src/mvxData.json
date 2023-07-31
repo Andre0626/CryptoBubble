@@ -1,0 +1,346 @@
+[
+  {
+    "token_id": "WEGLD-bd4d79",
+    "price": "32.548864393651456",
+    "price_change": "-0.2100",
+    "price_change_percentage": "-0.6411",
+    "volume": "22783.4727",
+    "liquidity": "433149.4093"
+  },
+  {
+    "token_id": "HTM-f51d55",
+    "price": "0.39761548823579446",
+    "price_change": "-0.0209",
+    "price_change_percentage": "-4.9980",
+    "volume": "4.5498",
+    "liquidity": "411.5815"
+  },
+  {
+    "token_id": "WBTC-5349b3",
+    "price": "29370.40372502108",
+    "price_change": "13.2877",
+    "price_change_percentage": "0.0453",
+    "volume": "757.7564",
+    "liquidity": "9417.2011"
+  },
+  {
+    "token_id": "WETH-b4ca29",
+    "price": "1876.4969343684375",
+    "price_change": "-4.5721",
+    "price_change_percentage": "-0.2431",
+    "volume": "0.0000",
+    "liquidity": "5723.0036"
+  },
+  {
+    "token_id": "USDT-f8c08c",
+    "price": "0.9999639264150273",
+    "price_change": "-0.0001",
+    "price_change_percentage": "-0.0067",
+    "volume": "1.5804",
+    "liquidity": "27962.2371"
+  },
+  {
+    "token_id": "XAPES-1d15a5",
+    "price": "0.0023812942582681646",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0032",
+    "volume": "0.0000",
+    "liquidity": "2914.9560"
+  },
+  {
+    "token_id": "LEGLD-d74da9",
+    "price": "33.12373603928845",
+    "price_change": "-0.2703",
+    "price_change_percentage": "-0.8095",
+    "volume": "145.0588",
+    "liquidity": "87325.8916"
+  },
+  {
+    "token_id": "ONE-f9954f",
+    "price": "0.09059111803046889",
+    "price_change": "-0.0057",
+    "price_change_percentage": "-5.9447",
+    "volume": "19715.8448",
+    "liquidity": "241177.9138"
+  },
+  {
+    "token_id": "MERMAID-9c388a",
+    "price": "0.00025973975695183226",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0032",
+    "volume": "0.2866",
+    "liquidity": "34.6786"
+  },
+  {
+    "token_id": "CPA-97530a",
+    "price": "0.0004663649213818481",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-2.6522",
+    "volume": "0.0000",
+    "liquidity": "378.9115"
+  },
+  {
+    "token_id": "ESTAR-461bab",
+    "price": "0.0006675498705881332",
+    "price_change": "0.0000",
+    "price_change_percentage": "5.5408",
+    "volume": "65.3206",
+    "liquidity": "437.4652"
+  },
+  {
+    "token_id": "RARE-99e8b0",
+    "price": "0.012791648691865522",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0233",
+    "volume": "12.4625",
+    "liquidity": "16189.2148"
+  },
+  {
+    "token_id": "KRO-df97ec",
+    "price": "0.0007906953598143817",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-0.8929",
+    "volume": "0.0000",
+    "liquidity": "43532.2683"
+  },
+  {
+    "token_id": "HYPE-619661",
+    "price": "0.0000016930164732247107",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.4851",
+    "volume": "27.4976",
+    "liquidity": "5643.7469"
+  },
+  {
+    "token_id": "PLATA-9ba6c3",
+    "price": "0.00031821055739206987",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-1.2499",
+    "volume": "0.0000",
+    "liquidity": "3742.3360"
+  },
+  {
+    "token_id": "EFOO-8fe2d4",
+    "price": "0.000015388174244290802",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0032",
+    "volume": "0.1389",
+    "liquidity": "312.7492"
+  },
+  {
+    "token_id": "XBIT-630969",
+    "price": "0.000007000434246828844",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-0.0397",
+    "volume": "1.3313",
+    "liquidity": "548.9090"
+  },
+  {
+    "token_id": "USDC-c76f1f",
+    "price": "1.0000513205872739",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0032",
+    "volume": "908.4208",
+    "liquidity": "138231.8559"
+  },
+  {
+    "token_id": "JEX-9040ca",
+    "price": "0.001567000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-1.8785",
+    "volume": "385.3607",
+    "liquidity": "21676.9474"
+  },
+  {
+    "token_id": "XLH-8daa50",
+    "price": "0.005705000000",
+    "price_change": "-0.0002",
+    "price_change_percentage": "-2.9101",
+    "volume": "3399.5511",
+    "liquidity": "46884.5043"
+  },
+  {
+    "token_id": "GCC-3194ab",
+    "price": "0.023732000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-0.0758",
+    "volume": "0.4746",
+    "liquidity": "1246.4331"
+  },
+  {
+    "token_id": "UPARK-982dd6",
+    "price": "0.001458000000",
+    "price_change": "-0.0001",
+    "price_change_percentage": "-6.5385",
+    "volume": "193.2475",
+    "liquidity": "3491.3511"
+  },
+  {
+    "token_id": "CTP-298075",
+    "price": "0.000564000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-0.1770",
+    "volume": "4.0086",
+    "liquidity": "9796.1847"
+  },
+  {
+    "token_id": "XBONK-7cde03",
+    "price": "0.000000000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0",
+    "volume": "0.0000",
+    "liquidity": "0.0000"
+  },
+  {
+    "token_id": "REWARD-cf6eac",
+    "price": "0.000350000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-1.4085",
+    "volume": "12.8224",
+    "liquidity": "4107.8148"
+  },
+  {
+    "token_id": "ECPX-5cbfeb",
+    "price": "0.000822000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-3.6342",
+    "volume": "73.9800",
+    "liquidity": "4527.0020"
+  },
+  {
+    "token_id": "BFY-8344ff",
+    "price": "0.259113000000",
+    "price_change": "-0.0617",
+    "price_change_percentage": "-19.2226",
+    "volume": "545.0178",
+    "liquidity": "863.9275"
+  },
+  {
+    "token_id": "MPH-f8ea2b",
+    "price": "0.047718000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.6681",
+    "liquidity": "97.5356"
+  },
+  {
+    "token_id": "EBUD-d29cce",
+    "price": "0.000564000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.0000",
+    "liquidity": "570.6409"
+  },
+  {
+    "token_id": "TCX-8d448d",
+    "price": "0.049636000000",
+    "price_change": "-0.0002",
+    "price_change_percentage": "-0.4213",
+    "volume": "0.0000",
+    "liquidity": "272.9371"
+  },
+  {
+    "token_id": "HODL-b8bd81",
+    "price": "43.387248000000",
+    "price_change": "-0.3143",
+    "price_change_percentage": "-0.7191",
+    "volume": "25.6419",
+    "liquidity": "11032.0830"
+  },
+  {
+    "token_id": "ORDER-f58c5b",
+    "price": "2.753745000000",
+    "price_change": "-0.0117",
+    "price_change_percentage": "-0.4213",
+    "volume": "0.0000",
+    "liquidity": "148.7831"
+  },
+  {
+    "token_id": "ANT-dada1a",
+    "price": "0.000000000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0",
+    "volume": "0.0000",
+    "liquidity": "0.0000"
+  },
+  {
+    "token_id": "MEME-2101aa",
+    "price": "0.000001000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-50.0000",
+    "volume": "99.0968",
+    "liquidity": "620.5360"
+  },
+  {
+    "token_id": "WAGMI-3f803d",
+    "price": "0.000015000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.0000",
+    "liquidity": "104.8023"
+  },
+  {
+    "token_id": "PEPE-8ef042",
+    "price": "0.000000000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0",
+    "volume": "0.0000",
+    "liquidity": "0.0000"
+  },
+  {
+    "token_id": "BEER-77650d",
+    "price": "0.000000000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0",
+    "volume": "0.0000",
+    "liquidity": "0.0000"
+  },
+  {
+    "token_id": "NEAT-811b8d",
+    "price": "0.001751000000",
+    "price_change": "-0.0000",
+    "price_change_percentage": "-0.4548",
+    "volume": "0.0000",
+    "liquidity": "168.5379"
+  },
+  {
+    "token_id": "GROGU-b40e75",
+    "price": "0.000000000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0",
+    "volume": "0.0000",
+    "liquidity": "0.0000"
+  },
+  {
+    "token_id": "AAR-80c00b",
+    "price": "0.000001000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.0000",
+    "liquidity": "0.3949"
+  },
+  {
+    "token_id": "INFRA-758365",
+    "price": "0.000923000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.0000",
+    "liquidity": "0.0001"
+  },
+  {
+    "token_id": "ROF-c85ab7",
+    "price": "0.000777000000",
+    "price_change": "0.0000",
+    "price_change_percentage": "0.0000",
+    "volume": "0.0000",
+    "liquidity": "13.4561"
+  },
+  {
+    "token_id": "EDIA-60b86f",
+    "price": "0.353435000000",
+    "price_change": "0.1492",
+    "price_change_percentage": "73.0785",
+    "volume": "88.3447",
+    "liquidity": "273.5455"
+  }
+]
