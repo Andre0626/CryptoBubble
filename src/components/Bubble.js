@@ -5,7 +5,7 @@ import S from './bubble.module.css';
 const Bubble = () => {
 
     return (
-        <div>Chart here</div>
+        <div></div>
     )
 };
 
