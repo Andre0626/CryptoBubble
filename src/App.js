@@ -10,50 +10,50 @@ function App() {
 
     const series = Data.reduce((acc, crt) => {
         const scaledPercentage = (Math.abs(crt.price_change_percentage) - minPercentage) / (maxPercentage - minPercentage);
+
         if (Number(crt.price_change_percentage) > 0) {
-            acc.green.push(
-                {
-                    name: crt.token_id,
-                    value: Number(parseFloat(crt.price_change_percentage).toFixed(2)),
-                    z: scaledPercentage,
-                    marker: {
-                        fillColor: {
-                            radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
-                            stops: [
-                                [0, 'hsla(120,90%,100%,0)'],
-                                [0.6, 'hsla(120,90%,100%,0)'],
-                                [1, 'hsl(120,90%,45%)']
-                            ]
-                        },
-                        lineWidth: 1,
-                        lineColor: 'hsl(120,90%,100%)'
-                    }
-                }
-            )
-        } else {
-            acc.red.push(
-                {
-                    name: crt.token_id,
-                    value: Math.abs(Number(parseFloat(crt.price_change_percentage).toFixed(2))),
-                    z: scaledPercentage,
-                    marker: {
-                        fillColor: {
-                            radialGradient: { cx: 0.4, cy: 0.3, r: 0.6 },
-                            stops: [
-                                [0, 'hsla(0,100%,100%,0)'],
-                                [0.6, 'hsla(0,100%,100%,0)'],
-                                [1, 'hsl(0,100%,50%)']
-                            ]
-                        },
-                        lineWidth: 1,
-                        lineColor: 'hsl(0,100%,100%)'
+            acc.green.push({
+                name: crt.token_id,
+                value: Number(parseFloat(crt.price_change_percentage).toFixed(2)),
+                z: scaledPercentage,
+                marker: {
+                    fillColor: {
+                        radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+                        stops: [
+                            [0.5, 'rgba(255, 255, 255, 0)'],
+                            [0.8, 'rgba(0, 255, 0, 0.3)'],
+                            [0.9, 'rgba(0, 255, 0, 0.6)'],
+                            [1, 'rgba(0, 255, 0, 1)']
+                        ]
                     },
+                    lineWidth: 1,
+                    lineColor: 'rgba(0, 255, 0, .5)'
                 }
-            )
+            });
+        } else if (Number(crt.price_change_percentage) < 0) {
+            acc.red.push({
+                name: crt.token_id,
+                value: Math.abs(Number(parseFloat(crt.price_change_percentage).toFixed(2))),
+                z: scaledPercentage,
+                marker: {
+                    fillColor: {
+                        radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+                        stops: [
+                            [0.5, 'rgba(255, 0, 0, 0)'],
+                            [0.8, 'rgba(255, 0, 0, 0.3)'],
+                            [0.9, 'rgba(255, 0, 0, 0.6)'],
+                            [1, 'rgba(255, 0, 0, 1)']
+                        ]
+                    },
+                    lineWidth: 1,
+                    lineColor: 'rgba(255, 0, 0, 0.3)'
+                }
+            });
         }
 
-        return acc
-    }, { red: [], green: [] });
+        return acc;
+    }, { green: [], red: [] });
+
 
     const dataChart = [
         {

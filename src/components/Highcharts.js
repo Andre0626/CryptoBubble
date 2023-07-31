@@ -53,6 +53,14 @@ const Chart = ({ dataChart }) => {
             packedbubble: {
                 minSize: 120,
                 maxSize: '200%',
+                marker: {
+                    states: {
+                        hover: {
+                            enabled: false,
+                            shadow: false
+                        }
+                    }
+                },
                 dataLabels: {
                     backgroundColor: undefined,
                     enabled: true,
@@ -61,7 +69,7 @@ const Chart = ({ dataChart }) => {
                     verticalAlign: 'middle',
                     formatter: function () {
                         const name = this.point?.name?.split('-')[0]?.trim();
-                        const dataChange = this.point.color === "rgb(149,58,59)" ? '+' : '-';
+                        const dataChange = this.point.color === "rgb(149,58,59)" ? '-' : '+';
                         const percentage = dataChange + this.point.value + '%';
                         const options = this.point.options;
                         const radius = this.point.graphic.radius;
