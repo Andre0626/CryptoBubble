@@ -6,7 +6,7 @@ import ImageWithFallback from "./ImageWithFallback";
 require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/highcharts-more")(Highcharts);
 
-const Chart = ({dataChart}) => {
+const Chart = ({ dataChart }) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -37,6 +37,38 @@ const Chart = ({dataChart}) => {
             margin: 0,
             styledMode: false,
             backgroundColor: '#282c34',
+            events: {
+                load: function () {
+                    this.series[0].points.forEach(function (point) {
+                        console.log(`point: ${JSON.stringify(point.options)}`);
+                        // Create a temporary image object
+                        var img = new Image();
+                        img.src = `https://media.elrond.com/tokens/asset/${point.options.name}/logo.svg`;
+
+                        // Check if the image is loaded successfully
+                        img.onload = function () {
+                            if (point?.options?.name)
+                                point.update({
+                                    marker: {
+                                        image: `https://media.elrond.com/tokens/asset/${point.options.name}/logo.svg`
+                                    }
+                                });
+                        };
+
+                        // If the image fails to load, set a default image for the point
+                        img.onerror = function () {
+                            console.log(`FAILED ${point?.options?.name}`);
+                            if (point?.options?.name)
+                                point.update({
+                                    marker: {
+                                        image: 'https://media.elrond.com/nfts/thumbnail/default.png'
+                                    }
+                                });
+                        };
+                    });
+                }
+
+            }
         },
         title: {
             text: '',
@@ -48,8 +80,8 @@ const Chart = ({dataChart}) => {
         credits: {
             enabled: false
         },
-        legend: {enabled: false},
-        exporting: {enabled: false},
+        legend: { enabled: false },
+        exporting: { enabled: false },
         series: dataChart,
         plotOptions: {
             packedbubble: {
@@ -81,7 +113,8 @@ const Chart = ({dataChart}) => {
                         const imgSize = radius * 0.9;
                         const defaultImageUrl = 'https://media.elrond.com/nfts/thumbnail/default.png';
 
-                        const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
+                        // const url = `https://media.elrond.com/tokens/asset/${options.name}/logo.svg`;
+                        const url = this.point.marker?.image || defaultImageUrl;
                         return `<div class="wrapperDataLabels" style="font-size:${fontSize}px;text-align:center">` +
                             `<img  class="imgClass" src=${url} alt="" style="width:${imgSize}px; height:${imgSize}px;" />` +
                             `<div style="margin:5px">${name}</div>` +
@@ -90,7 +123,7 @@ const Chart = ({dataChart}) => {
                     }
                 },
                 color: {
-                    radialGradient: {cx: 0.4, cy: 0.3, r: 0.7},
+                    radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
                     stops: [
                         [0, 'rgba(255,255,255,0.5)'],
                         [1, 'rgba(0,0,0,0.5)']
@@ -119,11 +152,11 @@ const Chart = ({dataChart}) => {
     };
 
     return (
-        <div style={{width: "100%", height: '100%', overflow: 'auto'}}>
+        <div style={{ width: "100%", height: '100%', overflow: 'auto' }}>
             <HighchartsReact
                 highcharts={Highcharts}
                 options={options}
-                containerProps={{style: {height: 'auto'}}}
+                containerProps={{ style: { height: 'auto' } }}
                 ref={chartRef}
             />
         </div>
